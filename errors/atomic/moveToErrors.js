@@ -7,11 +7,16 @@ let moveToErrors = {
         undefined: function () {
         },
         OK: function (agent) {
-            agent.atomic = _atomicState.IDLE
+            agent.atomic = 'idle';
         }, // good, unlock
-        ERR_NOT_OWNER: {}, // make it idle
-        ERR_NO_PATH: {}, // no_path: gives penalty.
-        ERR_BUSY: {}, // wait until.
+        ERR_NOT_OWNER: function () {
+            //remove agent from memory;
+        },
+        ERR_NO_PATH: {
+            // reassign target
+        }, // no_path: gives penalty.
+        ERR_BUSY: {
+            //wait until
         ERR_NOT_FOUND: {}, // n/a for now
         ERR_INVALID_TARGET: {}, // err_invalid_target = -7
         ERR_TIRED: {}, // destroy, penalty to weight.creep.bodypart
