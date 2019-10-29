@@ -76,7 +76,7 @@ Structure.prototype =
         /**
          * Toggle auto notification when the structure is under attack.
          * The notification will be sent to your account email.
-         * Turned on by default.
+         * Turned on by scaffold.
          *
          * @see {@link http://support.screeps.com/hc/en-us/articles/203079221-Structure#notifyWhenAttacked}
          *

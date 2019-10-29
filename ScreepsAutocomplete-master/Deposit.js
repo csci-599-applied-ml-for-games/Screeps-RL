@@ -13,7 +13,7 @@ Deposit = function () {
 Deposit.prototype = {
 
     /**
-     * The amount of game ticks until the next harvest action is possible.
+     * The amount of game ticks until the next harvest actionHelper is possible.
      *
      * @see {@link https://docs.screeps.com/api/#Deposit.cooldown}
      *

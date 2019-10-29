@@ -15,7 +15,7 @@ PowerCreep.prototype =
         /**
          * A static method to create new Power Creep instance in your account.
          * It will be added in an unspawned state, use spawn method to spawn it in the world.
-         * You need one free Power Level in your account to perform this action.
+         * You need one free Power Level in your account to perform this actionHelper.
          *
          * @see {@link https://docs.screeps.com/api/#PowerCreep.PowerCreep-create}
          *
@@ -107,7 +107,7 @@ PowerCreep.prototype =
         level: 0,
 
         /**
-         * A shorthand to Memory.creeps[creep.name].
+         * A shorthand to memory.creeps[creep.name].
          * You can use it for quick access the creep’s specific memory data object.
          *
          * @see {@link https://docs.screeps.com/api/#PowerCreep.memory}
@@ -299,9 +299,9 @@ PowerCreep.prototype =
          * @param {number} x X position of the target in the same room.
          * @param {number} [y] Y position of the target in the same room.
          * @param {object} [opts] An object containing additional options
-         * @param {number} [opts.reusePath] This option enables reusing the path found along multiple game ticks. It allows to save CPU time, but can result in a slightly slower creep reaction behavior. The path is stored into the creep's memory to the _move property. The reusePath value defines the amount of ticks which the path should be reused for. The default value is 5. Increase the amount to save more CPU, decrease to make the movement more consistent. Set to 0 if you want to disable path reusing.
-         * @param {boolean} [opts.serializeMemory] If reusePath is enabled and this option is set to true, the path will be stored in memory in the short serialized form using Room.serializePath. The default value is true.
-         * @param {boolean} [opts.noPathFinding] If this option is set to true, moveTo method will return ERR_NOT_FOUND if there is no memorized path to reuse. This can significantly save CPU time in some cases. The default value is false.
+         * @param {number} [opts.reusePath] This option enables reusing the path found along multiple game ticks. It allows to save CPU time, but can result in a slightly slower creep reaction behavior. The path is stored into the creep's memory to the _move property. The reusePath value defines the amount of ticks which the path should be reused for. The scaffold value is 5. Increase the amount to save more CPU, decrease to make the movement more consistent. Set to 0 if you want to disable path reusing.
+         * @param {boolean} [opts.serializeMemory] If reusePath is enabled and this option is set to true, the path will be stored in memory in the short serialized form using Room.serializePath. The scaffold value is true.
+         * @param {boolean} [opts.noPathFinding] If this option is set to true, moveTo method will return ERR_NOT_FOUND if there is no memorized path to reuse. This can significantly save CPU time in some cases. The scaffold value is false.
          * @note opts also supports any method from the Room.findPath options.
          *
          * @alias moveTo(target, [opts])
@@ -314,7 +314,7 @@ PowerCreep.prototype =
         /**
          * Toggle auto notification when the creep is under attack.
          * The notification will be sent to your account email.
-         * Turned on by default.
+         * Turned on by scaffold.
          *
          * @see {@link https://docs.screeps.com/api/#PowerCreep.notifyWhenAttacked}
          *
@@ -435,7 +435,7 @@ PowerCreep.prototype =
 
         /**
          * Upgrade the creep, adding a new power ability to it or increasing level of the existing power.
-         * You need one free Power Level in your account to perform this action.
+         * You need one free Power Level in your account to perform this actionHelper.
          *
          * @see {@link https://docs.screeps.com/api/#PowerCreep.upgrade}
          *

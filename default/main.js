@@ -4,7 +4,7 @@ var role = require('role');
 
 module.exports.loop = function () {
     //initialize
-    // console.log(Memory.initialized);
+    // console.log(memory.initialized);
     if (Memory.initialized == undefined) {
         Memory.weights = [0, 0, 0, 0, 0, 0, 0, 0];
         Memory.creepCount = 0;
@@ -33,15 +33,15 @@ module.exports.loop = function () {
         if (!Game.creeps[i]) {
             Memory.weights[Memory.creeps[i].srcs] += 300000;
             Memory.creepCount--;
-            // console.log(Memory.creeps[i]);
+            // console.log(memory.creeps[i]);
             delete Memory.creeps[i];
         }
     }
 
-    // console.log('next ID: ' + Memory.creepCount);
-    // console.log(Memory.weights);
+    // console.log('next ID: ' + memory.creepCount);
+    // console.log(memory.weights);
     // this should be unique id, or else, or ,...
-    // util._spawn(Game.spawns['Spawn1'], 'a' + Memory.creepCount, role.all()[0]);
+    // util._spawn(Game.spawns['Spawn1'], 'a' + memory.creepCount, role.all()[0]);
 
     for (var name in Game.spawns) {
         if (Memory.creepCount < hyper_worker_hi) {
@@ -61,7 +61,7 @@ module.exports.loop = function () {
 
         if (creep.ticksToLive < 2) {
             Memory.creepCount--;
-            // console.log(Memory.creeps[i]);
+            // console.log(memory.creeps[i]);
             delete Memory.creeps[name];
             creep = null;
             continue;

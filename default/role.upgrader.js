@@ -20,7 +20,7 @@ var roleUpgrader = {
                 creep.memory.idle = true;
                 creep.memory.threshold = 0;
                 creep.memory.carried = false;
-                // Memory.weights[creep.memory.srcs] = Memory.weights[creep.memory.srcs] + spent;
+                // memory.weights[creep.memory.srcs] = memory.weights[creep.memory.srcs] + spent;
             }
         }
     }

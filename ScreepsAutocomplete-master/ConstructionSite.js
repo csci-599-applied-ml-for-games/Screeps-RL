@@ -1,7 +1,7 @@
 /**
  * A site of a structure which is currently under construction.
  * A construction site can be created using the 'Construct' button at the left of the game field or the Room.createConstructionSite method.
- * To build a structure on the construction site, give a worker creep some amount of energy and perform Creep.build action.
+ * To build a structure on the construction site, give a worker creep some amount of energy and perform Creep.build actionHelper.
  *
  * @class
  * @extends {RoomObject}

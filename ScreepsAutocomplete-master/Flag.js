@@ -23,7 +23,7 @@ Flag.prototype =
         color: "",
 
         /**
-         * A shorthand to Memory.flags[flag.name].
+         * A shorthand to memory.flags[flag.name].
          * You can use it for quick access the flag's specific memory data object.
          *
          * @see {@link http://support.screeps.com/hc/en-us/articles/203079181-Flag#memory}
