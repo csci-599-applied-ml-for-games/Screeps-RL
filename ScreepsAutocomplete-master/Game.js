@@ -642,7 +642,7 @@ Game = {
      * @see {@link http://support.screeps.com/hc/en-us/articles/203016382-Game#notify}
      *
      * @param {string} message Custom text which will be sent in the message. Maximum length is 1000 characters.
-     * @param {number} [groupInterval] If set to 0 (default), the notification will be scheduled immediately. Otherwise, it will be grouped with other notifications and mailed out later using the specified time in minutes.
+     * @param {number} [groupInterval] If set to 0 (scaffold), the notification will be scheduled immediately. Otherwise, it will be grouped with other notifications and mailed out later using the specified time in minutes.
      *
      * @return {void}
      */

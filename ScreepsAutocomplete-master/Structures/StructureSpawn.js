@@ -42,7 +42,7 @@ StructureSpawn.prototype =
         energyCapacity: 0,
 
         /**
-         * A shorthand to Memory.spawns[spawn.name].
+         * A shorthand to memory.spawns[spawn.name].
          * You can use it for quick access the spawn’s specific memory data object.
          *
          * @see {@link http://support.screeps.com/hc/en-us/articles/205990342-StructureSpawn#memory}
@@ -96,7 +96,7 @@ StructureSpawn.prototype =
          *
          * @param {Array<string>} body An array describing the new creep’s body. Should contain 1 to 50 elements.
          * @param {string|undefined|null} [name] The name of a new creep. It should be unique creep name, i.e. the Game.creeps object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
-         * @param {*} [memory] The memory of a new creep. If provided, it will be immediately stored into Memory.creeps[name].
+         * @param {*} [memory] The memory of a new creep. If provided, it will be immediately stored into memory.creeps[name].
          *
          * @return {string|number|ERR_NOT_OWNER|ERR_NAME_EXISTS|ERR_BUSY|ERR_NOT_ENOUGH_ENERGY|ERR_INVALID_ARGS|ERR_RCL_NOT_ENOUGH}
          */
@@ -113,7 +113,7 @@ StructureSpawn.prototype =
          * @param {Array<string>} body An array describing the new creep’s body. Should contain 1 to 50 elements.
          * @param {string} name The name of a new creep. It must be a unique creep name, i.e. the Game.creeps object should not contain another creep with the same name (hash key).
          * @param {Object} [opts] An object with additional options for the spawning process.
-         * @param {*} [opts.memory] Memory of the new creep. If provided, it will be immediately stored into Memory.creeps[name].
+         * @param {*} [opts.memory] memory of the new creep. If provided, it will be immediately stored into memory.creeps[name].
          * @param {Array<StructureSpawn|StructureExtension>} [opts.energyStructures] Array of spawns/extensions from which to draw energy for the spawning process. Structures will be used according to the array order.
          * @param {boolean} [opts.dryRun] If dryRun is true, the operation will only check if it is possible to create a creep.
          * @param {Array<number>} [opts.directions] Set desired directions where the creep should move when spawned.

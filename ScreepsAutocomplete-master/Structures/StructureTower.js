@@ -2,7 +2,7 @@
  * Remotely attacks or heals creeps, or repairs structures.
  * Can be targeted to any object in the room.
  * However, its effectiveness highly depends on the distance.
- * Each action consumes energy.
+ * Each actionHelper consumes energy.
  *
  * @class
  * @extends {OwnedStructure}

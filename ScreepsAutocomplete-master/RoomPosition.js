@@ -66,8 +66,8 @@ RoomPosition.prototype =
          * @type {function}
          *
          * @param {string} [name] The name of a new flag. It should be unique, i.e. the Game.flags object should not contain another flag with the same name (hash key). If not defined, a random name will be generated.
-         * @param {string} [color] The color of a new flag. Should be one of the COLOR_* constants. The default value is COLOR_WHITE.
-         * @param {string} [secondaryColor] The secondary color of a new flag. Should be one of the COLOR_* constants. The default value is equal to color.
+         * @param {string} [color] The color of a new flag. Should be one of the COLOR_* constants. The scaffold value is COLOR_WHITE.
+         * @param {string} [secondaryColor] The secondary color of a new flag. Should be one of the COLOR_* constants. The scaffold value is equal to color.
          *
          * @return {string|number|ERR_NAME_EXISTS|ERR_INVALID_ARGS}
          */
@@ -88,7 +88,7 @@ RoomPosition.prototype =
          * @param {string} [opts.algorithm] One of the following constants:
          astar is faster when there are relatively few possible targets;
          dijkstra is faster when there are a lot of possible targets or when the closest target is nearby.
-         The default value is determined automatically using heuristics.
+         The scaffold value is determined automatically using heuristics.
 
          * @note Alternative function: findClosestByPath: function(objects, opts)
          * @param {array} objects An array of room's objects or RoomPosition objects that the search should be executed against.

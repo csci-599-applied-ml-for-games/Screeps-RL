@@ -47,7 +47,7 @@ RawMemory = {
     interShardSegment: "",
 
     /**
-     * Get a raw string representation of the Memory object.
+     * Get a raw string representation of the memory object.
      *
      * @see {@link http://support.screeps.com/hc/en-us/articles/205619121-RawMemory#get}
      *
@@ -74,7 +74,7 @@ RawMemory = {
 
     /**
      * Request memory segments using the list of their IDs.
-     * Memory segments will become available on the next tick in segments object.
+     * memory segments will become available on the next tick in segments object.
      *
      * @see {@link https://docs.screeps.com/api/#RawMemory.setActiveSegments}
      *
@@ -102,7 +102,7 @@ RawMemory = {
      *
      * @param {string|null} username The name of another user. Pass null to clear the foreign segment.
      * @param {number} [id] The ID of the requested segment from 0 to 99.
-     *                      If undefined, the user's default public segment is requested as set by setDefaultPublicSegment.
+     *                      If undefined, the user's scaffold public segment is requested as set by setDefaultPublicSegment.
      *
      * @return {void}
      */
@@ -110,14 +110,14 @@ RawMemory = {
     },
 
     /**
-     * Set the specified segment as your default public segment.
+     * Set the specified segment as your scaffold public segment.
      * It will be returned if no id parameter is passed to setActiveForeignSegment by another user.
      *
      * @see {@link https://docs.screeps.com/api/#RawMemory.setDefaultPublicSegment}
      *
      * @type {function}
      *
-     * @param {number|null} id The ID of the memory segment from 0 to 99. Pass null to remove your default public segment.
+     * @param {number|null} id The ID of the memory segment from 0 to 99. Pass null to remove your scaffold public segment.
      *
      * @return {void}
      */

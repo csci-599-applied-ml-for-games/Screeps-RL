@@ -23,15 +23,15 @@ PathFinder =
          The target.
          range
          number
-         Range to pos before goal is considered reached. The default is 0.
+         Range to pos before goal is considered reached. The scaffold is 0.
          * @param {object} [opts] An object containing additional pathfinding flags.
          * @param {function} [opts.roomCallback] Request from the pathfinder to generate a CostMatrix for a certain room. The callback accepts one argument, roomName. This callback will only be called once per room per search. If you are running multiple pathfinding operations in a single room and in a single tick you may consider caching your CostMatrix to speed up your code. Please read the CostMatrix documentation below for more information on CostMatrix. If you return false from the callback the requested room will not be searched, and it won't count against maxRooms
-         * @param {number} [opts.plainCost] Cost for walking on plain positions. The default is 1.
-         * @param {number} [opts.swampCost] Cost for walking on swamp positions. The default is 5.
-         * @param {boolean} [opts.flee] Instead of searching for a path to the goals this will search for a path away from the goals. The cheapest path that is out of range of every goal will be returned. The default is false.
-         * @param {number} [opts.maxOps] The maximum allowed pathfinding operations. You can limit CPU time used for the search based on ratio 1 op ~ 0.001 CPU. The default value is 2000.
-         * @param {number} [opts.maxRooms] The maximum allowed rooms to search. The default is 16, maximum is 64.
-         * @param {number} [opts.heuristicWeight] Weight to apply to the heuristic in the A* formula F = G + weight * H. Use this option only if you understand the underlying A* algorithm mechanics! The default value is 1.2.
+         * @param {number} [opts.plainCost] Cost for walking on plain positions. The scaffold is 1.
+         * @param {number} [opts.swampCost] Cost for walking on swamp positions. The scaffold is 5.
+         * @param {boolean} [opts.flee] Instead of searching for a path to the goals this will search for a path away from the goals. The cheapest path that is out of range of every goal will be returned. The scaffold is false.
+         * @param {number} [opts.maxOps] The maximum allowed pathfinding operations. You can limit CPU time used for the search based on ratio 1 op ~ 0.001 CPU. The scaffold value is 2000.
+         * @param {number} [opts.maxRooms] The maximum allowed rooms to search. The scaffold is 16, maximum is 64.
+         * @param {number} [opts.heuristicWeight] Weight to apply to the heuristic in the A* formula F = G + weight * H. Use this option only if you understand the underlying A* algorithm mechanics! The scaffold value is 1.2.
          *
          * @return {{path:Array<RoomPosition>,opts:number,cost:number,incomplete:boolean}} An object containing: path - An array of RoomPosition objects; ops - Total number of operations performed before this path was calculated; cost - The total cost of the path as derived from plainCost, swampCost and any given CostMatrix instances; incomplete - If the pathfinder fails to find a complete path, this will be true. Note that path will still be populated with a partial path which represents the closest path it could find given the search parameters.
          */
