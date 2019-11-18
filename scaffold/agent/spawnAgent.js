@@ -1,5 +1,5 @@
-var Atomic = require('atomic.js');
-module.exports = class HarvestAtomic extends Atomic {
+var Agent = require('./agent');
+module.exports = class SpawnAgent extends Agent {
     constructor(agent) {
         super(agent);
     }

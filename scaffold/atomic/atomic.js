@@ -8,13 +8,20 @@ module.exports = class Atomic {
     }
 
     run() {
+        if (this.isAtomicLocked() === false) {
+            this.begin();
+        } else {
+
+        }
+        this.spendTick();
     }
 
     lock() {
         this.#atomicLock = true;
-    } //set 3 locks
+    }
 
     begin() {
+        this.lock();
     }
 
     unlock() {
@@ -22,5 +29,14 @@ module.exports = class Atomic {
     }
 
     end() {
+        this.unlock();
+    }
+
+    spendTick() {
+
+    }
+
+    isAtomicLocked() {
+        return this.#atomicLock;
     }
 };

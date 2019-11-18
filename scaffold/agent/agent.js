@@ -1,29 +1,23 @@
 module.exports = class Agent {
-    #agent;
+    #instance;
     #action;
-    #type; // given
-    #atomicLock;
-    #actionLock;
-    #rule;
 
-    constructor(agent, type) { // according to agent Type, agents...
-        this.#agent = agent;
+    constructor(instance, type) { // according to agent Type, agents...
+        this.#instance = instance;
         this.#atomicLock = false;
         this.#actionLock = false;
-        this.#rule = this.constructRule(); // bring from setting file
-        return this.#rule[type];
     }
 
     setAction(atomicString) {
 
     }
 
-    constructRule() {
-        return {
-            'spawn': 'new agent.. spawnAgent',
-            'creep': 'creepAgent',
-        }
-    }
+    run() {
+        // if available, random(Action), random(Target)
+        //  setAction()
+        // if not available, keep up the good work.
+        //  action.run()
 
+    }
     // creepAgent.run(); creeplock -> action -> creepunlock;
 };
