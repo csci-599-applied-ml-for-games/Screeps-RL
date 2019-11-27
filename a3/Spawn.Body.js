@@ -2,18 +2,18 @@
     e.g. [MOVE, MOVE, MOVE] -> scout score
     e.g. [WORK, WORK, CARRY, CARRY, MOVE, MOVE] -> economic score
 */
-var Body = {
+var SpawnBody = {
     construct: function (maxEnergy) {
         // TODO: Greedy approach.
         var cost = 0;
         var parts = [];
 
         while (true) {
-            var part = _.sample(Body.BODY_PARTS);
-            if (Body.getCost(part) + cost > maxEnergy) {
+            var part = _.sample(SpawnBody.BODY_PARTS);
+            if (SpawnBody.getCost(part) + cost > maxEnergy) {
                 break;
             }
-            cost += Body.getCost(part);
+            cost += SpawnBody.getCost(part);
             parts.push(part);
         }
         return parts;
@@ -23,7 +23,7 @@ var Body = {
     }
 };
 
-module.exports = Body;
+module.exports = SpawnBody;
 
 /*
 https://docs.screeps.com/api/#Constants
