@@ -177,6 +177,7 @@ var Requirements = {
                 }
             }
         }
+        Debugger.clog(debug_log);
     }
 };
 
