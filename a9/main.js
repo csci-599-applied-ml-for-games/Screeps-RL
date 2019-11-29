@@ -6,39 +6,60 @@ var Structure = require('Structure');
 const Score = require('Score');
 var Weight = require('Weight');
 var Debugger = require('Debugger');
+var Execution = require('Execution');
+
 module.exports.loop = function () {
     init();
-    // init every turn
-    Memory.turn = {};
-    Memory.turn.harvested = 0;
-    Memory.turn.transferred = 0;
+
+    _.map(Memory.map, function(val, roomName) {
+        //console.log('val : '+val+', room name: '+roomName+'');
+        var room = Game.rooms[roomName];
+        if (!Execution.check(room)) {
+            delete Memory.map[roomName];
+        }
+        if (Execution.check(room.controller.my) && room.controller.my === false) {
+            delete Memory.map[roomName];
+        }
+
+    });
 
     for(var name in Memory.creeps) {
-        if(!Game.creeps[name]) {
+        if(!Execution.check(Game.creeps[name])) {
             delete Memory.creeps[name];
             console.log('Clearing non-existing creep memory:', name);
         }
     }
+
+    _.map(Game.rooms, function(room, val) {
+        //console.log('val : '+val+', room name: '+room+'');
+        if (!Execution.check(room)) {
+            delete Memory.rooms[room.name];
+        }
+        room.memory.turn = {};
+        room.memory.turn.harvested = 0.0;
+        room.memory.turn.transferred = 0.0;
+    });
+
     
     for (const i in Game.spawns) {
         Spawn.run(Game.spawns[i]);
     }
 
-    for (const i in Game.creeps) {
-        Creep.run(Game.creeps[i]);
-    }
+    _.map(Game.creeps, function(creep) {
+        if (creep.memory.reserved == null || !creep.memory.reserved) {
+            Creep.run(creep);
+        }
+    });
 
-    for (const i in Game.rooms) {
-        Requirements.structures(Game.rooms[i]);
-    }
+    _.map(Game.rooms, function(room) {
+        Requirements.structures(room);
+        Score.energyPerTick(room.memory.turn.harvested, room.memory.turn.transferred);
+    });
 
     for (const i in Game.structures) {
         Structure.run(Game.structures[i]);
     }
 
-
-//    console.log(Memory.turn.harvested + ' ' + Memory.turn.transferred);
-    Score.energyPerTick(Memory.turn.harvested, Memory.turn.transferred);
     Debugger.clog(Memory.weight['creep_action'].labels);
     Debugger.clog(Memory.weight['creep_action'].probs);
 

@@ -3,6 +3,7 @@ var TargetAction = require('Target.Action');
 var Rule = require('Rule');
 var MemoryWrapper = require('MemoryWrapper');
 var TargetAtomic = require('Target.Atomic');
+var Execution = require('Execution');
 var Target = {
     setTargetForAction: function (creep, action) {
         let behavior = {
@@ -12,6 +13,10 @@ var Target = {
             'build': TargetAction.build
         };
         // console.log('setTargetForAction');
+        if (behavior[action] == null) {
+            //probably testing obj.
+            return;
+        }
         creep.memory.targets = behavior[action](creep);
         // console.log(creep.memory.targets);
     },
@@ -24,6 +29,18 @@ var Target = {
         return Game.getObjectById(id);
     },
     getTarget: function (creep, index) {
+        console.log(creep);
+        console.log(creep.memory.targets);
+        console.log(index);
+
+        if (Execution.checkAll([
+            creep,
+            creep.memory.targets,
+            creep.memory.targets[index],
+            index
+        ])) {
+            return;
+        }
         if (typeof creep.memory.targets[index] === "string" ||
             creep.memory.targets[index] instanceof String) {
             return Target.get(creep, creep.memory.targets[index]);
