@@ -77,6 +77,7 @@ var TargetHelper = {
     },
     getEnergyReservoirPriority: function () {
         var reservoirs = [];
+
         for (let room in Memory.map) {
             if (Memory.map.hasOwnProperty(room)) {
                 let currentRoom = Game.rooms[room];
